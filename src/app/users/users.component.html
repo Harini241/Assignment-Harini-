@@ -1,0 +1,84 @@
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-bold" href="#">
+            <img src="https://th.bing.com/th/id/OIP.jia848EGdXqbDESxaucqCAHaHa?w=207&h=206&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="" width="60" height="50">
+        </a>
+    </div>
+
+</nav><br>
+
+<img src="https://th.bing.com/th/id/OIP.p5aepZh8OpbpDE8YlmVtWgHaHa?w=210&h=210&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Users" width="45" height="37">
+
+&nbsp;&nbsp;<b>Users</b>
+<div class="container-fluid g-0">
+    
+    
+        <div class="toolbar">
+            <div class="add-user">
+                <button type="button"  type="button" class="btn-secondary" data-toggle="modal" data-target="#exampleModal">Add User +</button>
+
+            </div>
+            <div class="Filter">
+                <input type="text"  class="form-control" placeholder="Filter" id="ip" (keyup)="filter()">
+
+            </div>
+        </div>
+    
+   </div>
+   
+  
+    <div class="card" style="width: 18rem; margin-left: 20px; margin-top: 20px; display: inline-block;" *ngFor="let row of usersData" >
+
+        <div class="card-body" style="padding: 0;">
+          <div class="card-header" id="staticBackdrop" style="background-color: royalblue; color: #fff; cursor: pointer; height: 50px;">{{row.firstName}} <button  class="button button-secondary" style="float: right;">Edit</button></div><br>
+          <span style="padding-left: 8px;"><img src="https://th.bing.com/th/id/OIP.KJisYyLGxklDSHSXbycUPQHaHa?w=204&h=199&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="" weight="60px" height="50px"></span>
+          <div style="margin-top: -60px;">
+          <p class="card-text" style="text-align: center; margin-top:10px; padding-right: 5px;">{{row.firstName}}</p>
+          <p class="card-text" style="text-align: center; padding-right: 5px;">{{row.email}}</p>
+          <p class="card-text" style="text-align: center; padding-right: 5px;">{{row.mobile}}</p>
+        </div>
+        </div>
+      </div>
+
+
+   
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add employee</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="exampleInputname">Name</label>
+                  <input type="text" formControlName="firstName" class="form-control" id="exampleInputname">
+                  
+                </div>
+              
+                <div class="mb-3">
+                    <label for="exampleInput1">Email Id</label>
+                    <input type="email" formControlName="email" class="form-control" id="exampleInput1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputmobile1">mobile number</label>
+                    <input type="text" formControlName="mobile" class="form-control" id="exampleInputmobiled1">
+                  </div>
+                 
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="postUsersDetails()" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
